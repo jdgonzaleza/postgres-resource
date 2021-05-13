@@ -20,11 +20,9 @@ def _check(in_stream):
         result = []
         for record in unprocessed_records:
             result.append({
-                "id":record[0],
-                "name": record[1],
-                "processed": record[2]
+                "version":record[0]
             })
-        return {result: result}
+        return result
     except (Exception, psycopg2.DatabaseError) as error:
         get_msg(str(error))
     
